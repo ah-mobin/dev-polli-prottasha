@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AdminSettingsController;
+use App\Http\Controllers\AdminWelcomeNoteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
@@ -49,6 +50,13 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');
         Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::get('home-page',[AdminPageController::class,'homePage'])->name('admin.home');
+
+
+        Route::group(['prefix'=>'welcome-note','as'=>'admin.welcome-note'],function(){
+            Route::get('/',[AdminWelcomeNoteController::class,'index']);
+            Route::post('title',[AdminWelcomeNoteController::class,'titleUpdate'])->name('.title');
+            Route::post('note',[AdminWelcomeNoteController::class,'titleNote'])->name('.note');
+        });
 
         Route::group(['prefix'=>'settings','as'=>'admin.settings'],function(){
             Route::get('/',[AdminSettingsController::class,'index']);

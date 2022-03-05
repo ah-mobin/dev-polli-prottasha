@@ -3,7 +3,13 @@
     <div class="mb-4">
         <ul>
             <li class="ps-1 py-1">Welcome to PolliProttasha</li>
-            <p>Welcome to the Polliprottasha's website, a renown socio-economic organization in Bangladesh. Polliprottasha is a good practiced MFI which has the aims to improve...</p>
+            {{-- <p>Welcome to the Polliprottasha's website, a renown socio-economic organization in Bangladesh. Polliprottasha is a good practiced MFI which has the aims to improve...</p> --}}
+            @php
+              $note = App\Models\WelcomeNote::find(1);
+              $note = $note->note;  
+            @endphp
+            {!! substr($note,0,150) !!} ...
+            <br>
             <a href="{{ route('page.welcome-note') }}">Read More <i class="fas fa-arrow-right"></i></a>
         </ul>
     </div>

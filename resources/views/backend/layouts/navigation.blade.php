@@ -79,7 +79,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('about') }}">
+        <a class="nav-link" href="{{ route('admin.welcome-note') }}">
             <svg class="nav-icon">
                 <use xlink:href="{{ asset('icons/coreui.svg#cil-notes') }}"></use>
             </svg>
