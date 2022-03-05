@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminChairmanSpeechController;
+use App\Http\Controllers\AdminEventController;
+use App\Http\Controllers\AdminExecutiveDirectorController;
 use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\AdminPromotionalBannerController;
 use App\Http\Controllers\AdminSettingsController;
 use App\Http\Controllers\AdminWelcomeNoteController;
 use Illuminate\Support\Facades\Route;
@@ -55,7 +59,33 @@ Route::group(['prefix'=>'admin'],function(){
         Route::group(['prefix'=>'welcome-note','as'=>'admin.welcome-note'],function(){
             Route::get('/',[AdminWelcomeNoteController::class,'index']);
             Route::post('title',[AdminWelcomeNoteController::class,'titleUpdate'])->name('.title');
-            Route::post('note',[AdminWelcomeNoteController::class,'titleNote'])->name('.note');
+            Route::post('note',[AdminWelcomeNoteController::class,'noteUpdate'])->name('.note');
+        });
+
+        Route::group(['prefix'=>'chairman-speech','as'=>'admin.chairman-speech'],function(){
+            Route::get('/',[AdminChairmanSpeechController::class,'index']);
+            Route::post('title',[AdminChairmanSpeechController::class,'titleUpdate'])->name('.title');
+            Route::post('speech',[AdminChairmanSpeechController::class,'speechUpdate'])->name('.speech');
+            Route::post('image',[AdminChairmanSpeechController::class,'imageUpdate'])->name('.image');
+        });
+
+        Route::group(['prefix'=>'executive-director','as'=>'admin.executive.director'],function(){
+            Route::get('/',[AdminExecutiveDirectorController::class,'index']);
+            Route::post('title',[AdminExecutiveDirectorController::class,'titleUpdate'])->name('.title');
+            Route::post('speech',[AdminExecutiveDirectorController::class,'speechUpdate'])->name('.speech');
+            Route::post('image',[AdminExecutiveDirectorController::class,'imageUpdate'])->name('.image');
+        });
+
+        Route::group(['prefix'=>'promotional-banner','as'=>'admin.promotional-banner'],function(){
+            Route::get('/',[AdminPromotionalBannerController::class,'index']);
+            Route::post('title',[AdminPromotionalBannerController::class,'titleUpdate'])->name('.title');
+            Route::post('image',[AdminPromotionalBannerController::class,'imageUpdate'])->name('.image');
+        });
+
+        Route::group(['prefix'=>'event-news','as'=>'admin.events'],function(){
+            Route::get('/',[AdminEventController::class,'index']);
+            Route::put('{id}',[AdminEventController::class,'update'])->name('.update');
+            Route::delete('{id}',[AdminEventController::class,'delete'])->name('.delete');
         });
 
         Route::group(['prefix'=>'settings','as'=>'admin.settings'],function(){

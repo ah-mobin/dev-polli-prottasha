@@ -18,7 +18,7 @@ class AdminWelcomeNoteController extends Controller
         return back();
     }
 
-    public function titleNote(Request $request){
+    public function noteUpdate(Request $request){
         $this->updateWithValidation($request, 'note');
         return back();
     }

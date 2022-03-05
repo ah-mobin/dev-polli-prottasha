@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('welcome_notes', function (Blueprint $table) {
+        Schema::create('executive_directors', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->mediumText('note')->nullable();
+            $table->longText('speech')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('welcome_notes');
+        Schema::dropIfExists('executive_directors');
     }
 };
