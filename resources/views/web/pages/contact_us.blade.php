@@ -6,7 +6,7 @@
         <div class="contact my-4">
             <h3 class="text-center text-purple mb-3">Contact Information</h3>
 
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d931425.3304399835!2d89.90844633196123!3d24.228477778102274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3756577bb5a29f75%3A0x3ea41fe5ec720f76!2z4Kaq4Kay4KeN4Kay4KeAIOCmquCnjeCmsOCmpOCnjeCmr-CmvuCmtuCmvg!5e0!3m2!1sbn!2sbd!4v1644677027740!5m2!1sbn!2sbd" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb={{ $googleMap }}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
 
             <div class="contact-with-us">

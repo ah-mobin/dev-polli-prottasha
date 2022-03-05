@@ -50,8 +50,20 @@ Route::group(['prefix'=>'admin'],function(){
         Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::get('home-page',[AdminPageController::class,'homePage'])->name('admin.home');
 
-        Route::get('settings',[AdminSettingsController::class,'index'])->name('admin.settings');
-        Route::post('settings/sitename',[AdminSettingsController::class,'siteNameUpdate'])->name('admin.settings.sitename');
+        Route::group(['prefix'=>'settings','as'=>'admin.settings'],function(){
+            Route::get('/',[AdminSettingsController::class,'index']);
+            Route::post('sitename',[AdminSettingsController::class,'siteNameUpdate'])->name('.sitename');
+            Route::post('sitename-bn',[AdminSettingsController::class,'siteNameBnUpdate'])->name('.sitename-bn');
+            Route::post('favicon',[AdminSettingsController::class,'faviconUpdate'])->name('.favicon');
+            Route::post('logo',[AdminSettingsController::class,'logoUpdate'])->name('.logo');
+            Route::post('address-one',[AdminSettingsController::class,'addressOneUpdate'])->name('.address-one');
+            Route::post('address-two',[AdminSettingsController::class,'addressTwoUpdate'])->name('.address-two');
+            Route::post('email',[AdminSettingsController::class,'emailUpdate'])->name('.email');
+            Route::post('phone',[AdminSettingsController::class,'phoneNumberUpdate'])->name('.phone');
+            Route::post('google-map',[AdminSettingsController::class,'googleMapUpdate'])->name('.google-map-id');
+            Route::post('facebook-page',[AdminSettingsController::class,'facebookPageUpdate'])->name('.fb-page-id');
+            Route::post('copyright',[AdminSettingsController::class,'copyrightTextUpdate'])->name('.copyright-text');
+        });
     });
 });
 

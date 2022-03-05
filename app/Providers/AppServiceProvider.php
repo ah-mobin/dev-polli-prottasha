@@ -37,6 +37,9 @@ class AppServiceProvider extends ServiceProvider
             View::share('siteEmail',$siteSettings->email_address);
             View::share('sitePhone',$siteSettings->phone_number);
             View::share('copyrightText',$siteSettings->copyright_text);
+            View::share('googleMap',$siteSettings->google_map);
+            View::share('fbPageId',$siteSettings->facebook_page);
+
         }
     }
 }

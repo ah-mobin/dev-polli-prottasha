@@ -8,6 +8,16 @@
 
         <div class="card-body">
 
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
             <table class="table table-bordered">
                 <tr>
                     <th width="35%">Site Name</th>
@@ -24,7 +34,7 @@
 
                 <tr>
                     <th width="35%">Site Name in Bangla</th>
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.settings.sitename-bn') }}" method="POST">
                         @csrf
                     <td>
                         <input type="text" name="site_name_bn" value="{{ $data->site_name_bn }}" class="form-control">
@@ -37,7 +47,7 @@
 
                 <tr>
                     <th width="35%">Favicon</th>
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.settings.favicon') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                     <td>
                         <img src="{{ $data->favicon }}" height="50" alt="">
@@ -51,7 +61,7 @@
 
                 <tr>
                     <th width="35%">Logo</th>
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.settings.logo') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                     <td>
                         <img src="{{ $data->logo }}" height="150" alt="">
@@ -65,7 +75,7 @@
 
                 <tr>
                     <th width="35%">Physical Address Line One</th>
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.settings.address-one') }}" method="POST">
                         @csrf
                     <td>
                         <input type="text" name="physical_address_line_one" class="form-control" value="{{ $data->physical_address_line_one }}">
@@ -78,7 +88,7 @@
 
                 <tr>
                     <th width="35%">Physical Address Line Two</th>
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.settings.address-two') }}" method="POST">
                         @csrf
                     <td>
                         <input type="text" name="physical_address_line_two" class="form-control" value="{{ $data->physical_address_line_two }}">
@@ -91,7 +101,7 @@
 
                 <tr>
                     <th width="35%">Email Address</th>
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.settings.email') }}" method="POST">
                         @csrf
                     <td>
                         <input type="text" name="email_address" class="form-control" value="{{ $data->email_address }}">
@@ -104,7 +114,7 @@
 
                 <tr>
                     <th width="35%">Phone Number</th>
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.settings.phone') }}" method="POST">
                         @csrf
                     <td>
                         <input type="text" name="phone_number" class="form-control" value="{{ $data->phone_number }}">
@@ -117,7 +127,7 @@
 
                 <tr>
                     <th width="35%">Google Map Track Id</th>
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.settings.google-map-id') }}" method="POST">
                         @csrf
                     <td>
                         <input type="text" name="google_map" class="form-control" value="{{ $data->google_map }}">
@@ -130,7 +140,7 @@
 
                 <tr>
                     <th width="35%">Facebook Page Id</th>
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.settings.fb-page-id') }}" method="POST">
                         @csrf
                     <td>
                         <input type="text" name="facebook_page" class="form-control" value="{{ $data->facebook_page }}">
@@ -142,7 +152,7 @@
                 </tr>
                 <tr>
                     <th width="35%">Footer Copyright Text</th>
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.settings.copyright-text') }}" method="POST">
                         @csrf
                     <td>
                         <input type="text" name="copyright_text" class="form-control" value="{{ $data->copyright_text }}">
@@ -154,7 +164,6 @@
                 </tr>
                 <tbody>
             </table>
-
         </div>
     </div>
 @endsection
