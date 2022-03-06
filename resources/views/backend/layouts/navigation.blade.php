@@ -115,7 +115,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('about') }}">
+        <a class="nav-link" href="{{ route('admin.notice') }}">
             <svg class="nav-icon">
                 <use xlink:href="{{ asset('icons/coreui.svg#cil-note-add') }}"></use>
             </svg>

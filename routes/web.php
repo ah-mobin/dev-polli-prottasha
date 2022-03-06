@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminChairmanSpeechController;
 use App\Http\Controllers\AdminEventController;
 use App\Http\Controllers\AdminExecutiveDirectorController;
+use App\Http\Controllers\AdminNoticeController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AdminPromotionalBannerController;
 use App\Http\Controllers\AdminSettingsController;
@@ -87,6 +88,12 @@ Route::group(['prefix'=>'admin'],function(){
             Route::post('/',[AdminEventController::class,'store'])->name('.store');
             Route::put('{id}',[AdminEventController::class,'update'])->name('.update');
             Route::delete('{id}',[AdminEventController::class,'delete'])->name('.delete');
+        });
+
+        Route::group(['prefix'=>'notices','as'=>'admin.notice'],function(){
+            Route::get('/',[AdminNoticeController::class,'index']);
+            Route::post('/',[AdminNoticeController::class,'store'])->name('.store');
+            Route::delete('{id}',[AdminNoticeController::class,'delete'])->name('.delete');
         });
 
         Route::group(['prefix'=>'settings','as'=>'admin.settings'],function(){
