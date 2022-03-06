@@ -54,8 +54,55 @@
                     @endforelse
                 </tbody>
             </table>
-            
         </div>
+
+
+        <div class="card-body">
+          <h5 class="my-3">Section One</h5>
+          <table class="table table-bordered">
+              <tr>
+                <th>First Content</th>
+                <form action="{{ route('admin.home.sec-one.content-one') }}" method="POST">
+                  @csrf
+                  @method('put')
+                  <td width="60%">
+                      <textarea class="ckeditor form-control" name="item_one">
+                          {!! $secOne->item_one !!}
+                      </textarea>
+                  </td>
+                  <td><button type="submit" class="btn btn-success text-light">Update</button></td>
+              </form>
+              </tr>
+
+              <tr>
+                <th>First Content</th>
+                <form action="{{ route('admin.home.sec-one.content-two') }}" method="POST">
+                  @csrf
+                  @method('put')
+                  <td width="60%">
+                      <textarea class="ckeditor form-control" name="item_two">
+                          {!! $secOne->item_two !!}
+                      </textarea>
+                  </td>
+                  <td><button type="submit" class="btn btn-success text-light">Update</button></td>
+              </form>
+              </tr>
+
+              <tr>
+                <th>First Content</th>
+                <form action="{{ route('admin.home.sec-one.content-three') }}" method="POST">
+                  @csrf
+                  @method('put')
+                  <td width="60%">
+                      <textarea class="ckeditor form-control" name="item_three">
+                          {!! $secOne->item_three !!}
+                      </textarea>
+                  </td>
+                  <td><button type="submit" class="btn btn-success text-light">Update</button></td>
+              </form>
+              </tr>
+          </table>
+      </div>
 
 
         <div class="card-body">

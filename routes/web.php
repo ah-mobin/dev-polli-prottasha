@@ -110,6 +110,12 @@ Route::group(['prefix'=>'admin'],function(){
             Route::delete('{id}',[AdminSliderController::class,'delete'])->name('.delete');
         });
 
+        Route::group(['prefix'=>'home-section-one','as'=>'admin.home.sec-one'],function(){
+            Route::put('content-one',[AdminHomePageController::class,'secOneContentOne'])->name('.content-one');
+            Route::put('content-two',[AdminHomePageController::class,'secOneContentTwo'])->name('.content-two');
+            Route::put('content-three',[AdminHomePageController::class,'secOneContentThree'])->name('.content-three');
+        });
+
         Route::group(['prefix'=>'stories','as'=>'admin.stories'],function(){
             Route::post('/',[AdminSuccessStoriesController::class,'store'])->name('.store');
             Route::delete('{id}',[AdminSuccessStoriesController::class,'delete'])->name('.delete');
