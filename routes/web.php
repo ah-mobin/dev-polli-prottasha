@@ -84,6 +84,7 @@ Route::group(['prefix'=>'admin'],function(){
 
         Route::group(['prefix'=>'event-news','as'=>'admin.events'],function(){
             Route::get('/',[AdminEventController::class,'index']);
+            Route::post('/',[AdminEventController::class,'store'])->name('.store');
             Route::put('{id}',[AdminEventController::class,'update'])->name('.update');
             Route::delete('{id}',[AdminEventController::class,'delete'])->name('.delete');
         });
