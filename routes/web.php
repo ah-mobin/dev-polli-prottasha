@@ -3,10 +3,13 @@
 use App\Http\Controllers\AdminChairmanSpeechController;
 use App\Http\Controllers\AdminEventController;
 use App\Http\Controllers\AdminExecutiveDirectorController;
+use App\Http\Controllers\AdminHomePageController;
 use App\Http\Controllers\AdminNoticeController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AdminPromotionalBannerController;
 use App\Http\Controllers\AdminSettingsController;
+use App\Http\Controllers\AdminSliderController;
+use App\Http\Controllers\AdminSuccessStoriesController;
 use App\Http\Controllers\AdminWelcomeNoteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -57,6 +60,11 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('home-page',[AdminPageController::class,'homePage'])->name('admin.home');
 
 
+        Route::group(['prefix'=>'pages'],function(){
+            Route::get('home',[AdminHomePageController::class,'home'])->name('admin.pages.home');
+        });
+
+
         Route::group(['prefix'=>'welcome-note','as'=>'admin.welcome-note'],function(){
             Route::get('/',[AdminWelcomeNoteController::class,'index']);
             Route::post('title',[AdminWelcomeNoteController::class,'titleUpdate'])->name('.title');
@@ -94,6 +102,16 @@ Route::group(['prefix'=>'admin'],function(){
             Route::get('/',[AdminNoticeController::class,'index']);
             Route::post('/',[AdminNoticeController::class,'store'])->name('.store');
             Route::delete('{id}',[AdminNoticeController::class,'delete'])->name('.delete');
+        });
+
+        Route::group(['prefix'=>'sliders','as'=>'admin.sliders'],function(){
+            Route::post('/',[AdminSliderController::class,'store'])->name('.store');
+            Route::delete('{id}',[AdminSliderController::class,'delete'])->name('.delete');
+        });
+
+        Route::group(['prefix'=>'stories','as'=>'admin.stories'],function(){
+            Route::post('/',[AdminSuccessStoriesController::class,'store'])->name('.store');
+            Route::delete('{id}',[AdminSuccessStoriesController::class,'delete'])->name('.delete');
         });
 
         Route::group(['prefix'=>'settings','as'=>'admin.settings'],function(){

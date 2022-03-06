@@ -17,7 +17,7 @@
         </a>
         <ul class="nav-group-items" style="height: 0px;">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.home') }}" target="_top">
+                <a class="nav-link" href="{{ route('admin.pages.home') }}" target="_top">
                     Home
                 </a>
             </li>
