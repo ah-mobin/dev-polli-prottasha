@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminSettingsController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminSuccessStoriesController;
 use App\Http\Controllers\AdminWelcomeNoteController;
+use App\Http\Controllers\AdminYtDocumentaryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
@@ -112,6 +113,18 @@ Route::group(['prefix'=>'admin'],function(){
         Route::group(['prefix'=>'stories','as'=>'admin.stories'],function(){
             Route::post('/',[AdminSuccessStoriesController::class,'store'])->name('.store');
             Route::delete('{id}',[AdminSuccessStoriesController::class,'delete'])->name('.delete');
+        });
+
+        Route::group(['prefix'=>'home-section-three','as'=>'admin.home.sec-three'],function(){
+            Route::post('/',[AdminHomePageController::class,'secThreeStore'])->name('.store');
+            Route::put('{id}',[AdminHomePageController::class,'secThreeUpdate'])->name('.update');
+            Route::delete('{id}',[AdminHomePageController::class,'secThreeDelete'])->name('.delete');
+        });
+
+        Route::group(['prefix'=>'videos','as'=>'admin.videos'],function(){
+            Route::post('/',[AdminYtDocumentaryController::class,'store'])->name('.store');
+            Route::put('{id}',[AdminYtDocumentaryController::class,'update'])->name('.update');
+            Route::delete('{id}',[AdminYtDocumentaryController::class,'delete'])->name('.delete');
         });
 
         Route::group(['prefix'=>'settings','as'=>'admin.settings'],function(){

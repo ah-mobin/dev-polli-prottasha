@@ -106,8 +106,180 @@
                     @endforelse
                 </tbody>
             </table>
-            
         </div>
+
+
+        <div class="card-body">
+          <h5 class="my-3">Section Three</h5>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSecThreeItem">
+          Add Item
+        </button>
+          <table class="table table-bordered">
+              <thead>
+                  <tr>
+                      <th>Title</th>
+                      <th>Image</th>
+                      <th>Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  @forelse($threes as $item)
+                  <tr>
+                      <td>{{ $item->title }}</td>
+                      <td><img src="{{ $item->image }}" height="120px" alt=""></td>
+                      <td>
+                        <button type="button" class="btn btn-info text-light ms-3" data-bs-toggle="modal" data-bs-target="#editSecThreeItem{{ $item->id }}">
+                          Edit
+                        </button>
+                        <button type="button" class="btn btn-warning text-light ms-3" data-bs-toggle="modal" data-bs-target="#removeSecThreeItem{{ $item->id }}">
+                          Remove
+                        </button>
+                      </td>
+                  </tr>
+
+                  <!-- Add Section Three Item Modal -->
+                <div class="modal fade" id="editSecThreeItem{{ $item->id }}" tabindex="-1" aria-labelledby="editSecThreeItemLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <form action="{{ route('admin.home.sec-three.update',$item->id) }}" method="post" enctype="multipart/form-data">
+                      @csrf
+                      @method('put')
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="editSecThreeItemLabel">Edit Item</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" value="{{ $item->title }}" class="form-control">
+                          </div>
+                          <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" class="form-control">
+                          </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                          <button type="button" class="btn btn-warning text-light" data-bs-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-success text-light">Update</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                  <!-- Delete Modal -->
+                  <div class="modal fade" id="removeSecThreeItem{{ $item->id }}" tabindex="-1" aria-labelledby="removeSecThreeItemLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <form action="{{ route('admin.home.sec-three.delete',$item->id) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <div class="modal-content">
+                          <div class="modal-body text-center">
+                            <h3>Are you sure you want remove the item?</h3>
+                          </div>
+                          <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-success text-light" data-bs-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-danger text-light">Yes</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  @empty
+                  <tr>
+                      <td colspan="3" class="text-center">No Data</td>
+                  </tr>
+                  @endforelse
+              </tbody>
+          </table>
+      </div>
+
+
+        <div class="card-body">
+          <h5 class="my-3">Youtube Videos</h5>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVideo">
+          Add Slider
+        </button>
+          <table class="table table-bordered">
+              <thead>
+                  <tr>
+                      <th>Title</th>
+                      <th>Video</th>
+                      <th>Remove</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  @forelse($videos as $item)
+                  <tr>
+                      <td>{{ $item->title }}</td>
+                      <td><iframe width="100%" height="200" src="https://www.youtube.com/embed/{{ $item->yt_vide_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                      <td>
+                        <button type="button" class="btn btn-info text-light ms-3" data-bs-toggle="modal" data-bs-target="#editVideo{{ $item->id }}">
+                          Edit
+                        </button>
+                        <button type="button" class="btn btn-warning text-light ms-3" data-bs-toggle="modal" data-bs-target="#remeoveVideo{{ $item->id }}">
+                          Remove
+                        </button>
+                      </td>
+                  </tr>
+
+
+                  <!-- Edit YT Modal -->
+                <div class="modal fade" id="editVideo{{ $item->id }}" tabindex="-1" aria-labelledby="editVideoLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <form action="{{ route('admin.videos.update',$item->id) }}" method="post">
+                      @csrf
+                      @method('put')
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="editVideoLabel">Edit Video Data</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" value="{{ $item->title }}" class="form-control">
+                          </div>
+                          <div class="form-group">
+                            <label for="ytVideId">Youtube Link ID</label>
+                            <input type="text" name="yt_vide_id" value="{{ $item->yt_vide_id }}" class="form-control">
+                          </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                          <button type="button" class="btn btn-warning text-light" data-bs-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-success text-light">Update</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                  <!-- Delete Modal -->
+                  <div class="modal fade" id="remeoveVideo{{ $item->id }}" tabindex="-1" aria-labelledby="remeoveVideoLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <form action="{{ route('admin.videos.delete',$item->id) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <div class="modal-content">
+                          <div class="modal-body text-center">
+                            <h3>Are you sure you want remove the video?</h3>
+                          </div>
+                          <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-success text-light" data-bs-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-danger text-light">Yes</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  @empty
+                  <tr>
+                      <td colspan="3" class="text-center">No Data</td>
+                  </tr>
+                  @endforelse
+              </tbody>
+          </table>
+      </div>
     </div>
 
 
@@ -137,6 +309,36 @@
         </div>
       </div>
 
+
+    <!-- Add Section Three Item Modal -->
+    <div class="modal fade" id="addSecThreeItem" tabindex="-1" aria-labelledby="addSecThreeItemLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <form action="{{ route('admin.home.sec-three.store') }}" method="post" enctype="multipart/form-data">
+          @csrf
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addSecThreeItemLabel">Add New Item</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" name="image" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+              <button type="button" class="btn btn-warning text-light" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success text-light">Add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- Create Story Modal -->
     <div class="modal fade" id="addStory" tabindex="-1" aria-labelledby="addStoryLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -151,6 +353,35 @@
               <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" name="image" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+              <button type="button" class="btn btn-warning text-light" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success text-light">Add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Create YT Modal -->
+    <div class="modal fade" id="addVideo" tabindex="-1" aria-labelledby="addVideoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <form action="{{ route('admin.videos.store') }}" method="post">
+          @csrf
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addVideoLabel">Add New Youtube</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="ytVideId">Youtube Link ID</label>
+                <input type="text" name="yt_vide_id" class="form-control">
               </div>
             </div>
             <div class="modal-footer d-flex justify-content-between">
