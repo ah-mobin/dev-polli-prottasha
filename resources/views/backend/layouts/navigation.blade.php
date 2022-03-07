@@ -22,17 +22,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" target="_top">
+                <a class="nav-link" href="{{ route('admin.pages.about.histories') }}" target="_top">
                     About - History
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" target="_top">
+                <a class="nav-link" href="{{ route('admin.pages.about.missions') }}" target="_top">
                     About - Mission
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" target="_top">
+                <a class="nav-link" href="{{ route('admin.pages.about.visions') }}" target="_top">
                     About - Vision
                 </a>
             </li>

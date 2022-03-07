@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAboutPageController;
 use App\Http\Controllers\AdminChairmanSpeechController;
 use App\Http\Controllers\AdminEventController;
 use App\Http\Controllers\AdminExecutiveDirectorController;
@@ -63,6 +64,9 @@ Route::group(['prefix'=>'admin'],function(){
 
         Route::group(['prefix'=>'pages'],function(){
             Route::get('home',[AdminHomePageController::class,'home'])->name('admin.pages.home');
+            Route::get('history',[AdminAboutPageController::class,'history'])->name('admin.pages.about.histories');
+            Route::get('vision',[AdminAboutPageController::class,'vision'])->name('admin.pages.about.visions');
+            Route::get('mission',[AdminAboutPageController::class,'mission'])->name('admin.pages.about.missions');
         });
 
 
@@ -133,6 +137,14 @@ Route::group(['prefix'=>'admin'],function(){
             Route::delete('{id}',[AdminYtDocumentaryController::class,'delete'])->name('.delete');
         });
 
+
+        Route::group(['prefix'=>'about','as'=>'admin.about'],function(){
+            Route::put('history',[AdminAboutPageController::class,'historyUpdate'])->name('.histories.update');
+            Route::put('mission',[AdminAboutPageController::class,'missionUpdate'])->name('.missions.update');
+            Route::put('vision',[AdminAboutPageController::class,'visionUpdate'])->name('.visions.update');
+        });
+
+
         Route::group(['prefix'=>'settings','as'=>'admin.settings'],function(){
             Route::get('/',[AdminSettingsController::class,'index']);
             Route::post('sitename',[AdminSettingsController::class,'siteNameUpdate'])->name('.sitename');
@@ -149,5 +161,3 @@ Route::group(['prefix'=>'admin'],function(){
         });
     });
 });
-
-
