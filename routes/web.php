@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminAboutPageController;
+use App\Http\Controllers\AdminCareerController;
 use App\Http\Controllers\AdminChairmanSpeechController;
 use App\Http\Controllers\AdminEventController;
 use App\Http\Controllers\AdminExecutiveDirectorController;
 use App\Http\Controllers\AdminHomePageController;
+use App\Http\Controllers\AdminLegalStatusController;
+use App\Http\Controllers\AdminManagementController;
 use App\Http\Controllers\AdminNoticeController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AdminPromotionalBannerController;
@@ -12,6 +15,7 @@ use App\Http\Controllers\AdminSettingsController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminSuccessStoriesController;
 use App\Http\Controllers\AdminWelcomeNoteController;
+use App\Http\Controllers\AdminWhatWeDoController;
 use App\Http\Controllers\AdminYtDocumentaryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -64,9 +68,28 @@ Route::group(['prefix'=>'admin'],function(){
 
         Route::group(['prefix'=>'pages'],function(){
             Route::get('home',[AdminHomePageController::class,'home'])->name('admin.pages.home');
+            
             Route::get('history',[AdminAboutPageController::class,'history'])->name('admin.pages.about.histories');
             Route::get('vision',[AdminAboutPageController::class,'vision'])->name('admin.pages.about.visions');
             Route::get('mission',[AdminAboutPageController::class,'mission'])->name('admin.pages.about.missions');
+            
+            Route::get('management/organogram',[AdminManagementController::class,'organogram'])->name('admin.pages.management.organogram');
+            Route::put('management/organogram',[AdminManagementController::class,'organogramUpdate'])->name('admin.pages.management.organogram.update');
+            
+            Route::get('what-we-do',[AdminWhatWeDoController::class,'index'])->name('admin.pages.what-we-do.index');
+            Route::post('what-we-do',[AdminWhatWeDoController::class,'store'])->name('admin.pages.what-we-do.store');
+            Route::put('what-we-do/{id}',[AdminWhatWeDoController::class,'update'])->name('admin.pages.what-we-do.update');
+            Route::delete('what-we-do/{id}',[AdminWhatWeDoController::class,'delete'])->name('admin.pages.what-we-do.delete');
+
+            Route::get('legal-status',[AdminLegalStatusController::class,'index'])->name('admin.pages.legal-status.index');
+            Route::post('legal-status',[AdminLegalStatusController::class,'store'])->name('admin.pages.legal-status.store');
+            Route::put('legal-status/{id}',[AdminLegalStatusController::class,'update'])->name('admin.pages.legal-status.update');
+            Route::delete('legal-status/{id}',[AdminLegalStatusController::class,'delete'])->name('admin.pages.legal-status.delete');
+
+            Route::get('careers',[AdminCareerController::class,'index'])->name('admin.pages.careers.index');
+            Route::post('careers',[AdminCareerController::class,'store'])->name('admin.pages.careers.store');
+            Route::put('careers/{id}',[AdminCareerController::class,'update'])->name('admin.pages.careers.update');
+            Route::delete('careers/{id}',[AdminCareerController::class,'delete'])->name('admin.pages.careers.delete');
         });
 
 

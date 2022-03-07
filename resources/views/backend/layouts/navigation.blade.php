@@ -37,22 +37,22 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" target="_top">
-                    Management - Organogram
+                <a class="nav-link" href="{{ route('admin.pages.management.organogram') }}" target="_top">
+                    Organogram
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" target="_top">
+                <a class="nav-link" href="{{ route('admin.pages.what-we-do.index') }}" target="_top">
                     What We Do
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" target="_top">
+                <a class="nav-link" href="{{ route('admin.pages.legal-status.index') }}" target="_top">
                     Legal Status
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" target="_top">
+                <a class="nav-link" href="{{ route('admin.pages.careers.index') }}" target="_top">
                     Career
                 </a>
             </li>

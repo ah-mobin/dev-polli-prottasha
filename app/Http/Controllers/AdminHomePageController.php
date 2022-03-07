@@ -46,7 +46,6 @@ class AdminHomePageController extends Controller
         return back();
     }
 
-
     public function secThreeStore(Request $request){
         $request->validate([
             'title' => 'required',
