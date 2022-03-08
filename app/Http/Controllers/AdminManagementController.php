@@ -39,6 +39,6 @@ class AdminManagementController extends Controller
 
         $image->save();
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 }

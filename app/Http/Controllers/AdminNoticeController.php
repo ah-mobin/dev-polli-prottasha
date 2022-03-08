@@ -38,12 +38,12 @@ class AdminNoticeController extends Controller
             'link' => $request->link
         ]);
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function delete($id){
         Notice::whereId($id)->delete();
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 }

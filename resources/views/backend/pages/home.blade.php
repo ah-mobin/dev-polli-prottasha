@@ -6,6 +6,8 @@
             {{ __('Home Page') }}
         </div>
 
+        @includeIf('flash')
+
         <div class="card-body">
             <h5 class="my-3">Sliders</h5>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSlider">

@@ -43,7 +43,11 @@
                     <h4 class="text-center my-5">IF You Have Any Question<br>
                         Please Do Not Hesitate To send A Message</h4>
 
-                    <form action="" method="">
+                    <form action="{{ route('contact.message.store') }}" method="post">
+
+                        @includeIf('flash')
+
+                        @csrf
                         <div class="form-group mb-4">
                             <label for="name">Your Name</label>
                             <input type="text" class="form-control" name="name" id="name" value="">

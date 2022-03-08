@@ -17,12 +17,12 @@ class AdminPromotionalBannerController extends Controller
 
     public function titleUpdate(Request $request){
         $this->updateWithValidation($request, false, 'title');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function imageUpdate(Request $request){
         $this->updateWithValidation($request, true, 'image');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
 

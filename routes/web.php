@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminSuccessStoriesController;
 use App\Http\Controllers\AdminWelcomeNoteController;
 use App\Http\Controllers\AdminWhatWeDoController;
 use App\Http\Controllers\AdminYtDocumentaryController;
+use App\Http\Controllers\ContactFormController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
@@ -49,6 +50,7 @@ Route::get('/career',[PageController::class,'career'])->name('page.career');
 Route::get('/career-details/{id}',[PageController::class,'careerDetails'])->name('page.career-details');
 Route::get('/gallery',[PageController::class,'gallery'])->name('page.gallery');
 Route::get('/contact-us',[PageController::class,'contactUs'])->name('page.contact-us');
+Route::post('/contact-us',[ContactFormController::class,'store'])->name('contact.message.store');
 Route::get('/chairman-speech',[PageController::class,'chairmanSpeech'])->name('page.chairman-speech');
 Route::get('/executive-director',[PageController::class,'executiveDirector'])->name('page.executive-director');
 Route::get('/welcome-note',[PageController::class,'welcomeNote'])->name('page.welcome-note');
@@ -165,6 +167,10 @@ Route::group(['prefix'=>'admin'],function(){
             Route::put('history',[AdminAboutPageController::class,'historyUpdate'])->name('.histories.update');
             Route::put('mission',[AdminAboutPageController::class,'missionUpdate'])->name('.missions.update');
             Route::put('vision',[AdminAboutPageController::class,'visionUpdate'])->name('.visions.update');
+        });
+
+        Route::group(['prefix'=>'contacts','as'=>'admin.contacts'],function(){
+            Route::get('/',[ContactFormController::class,'index'])->name('.index');
         });
 
 

@@ -16,57 +16,57 @@ class AdminSettingsController extends Controller
 
     public function siteNameUpdate(Request $request){
         $this->updateWithValidation($request, false, 'site_name');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function siteNameBnUpdate(Request $request){
         $this->updateWithValidation($request, false, 'site_name_bn');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function faviconUpdate(Request $request){
         $this->updateWithValidation($request, true, 'favicon');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function logoUpdate(Request $request){
         $this->updateWithValidation($request, true, 'logo');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function addressOneUpdate(Request $request){
         $this->updateWithValidation($request, false, 'physical_address_line_one');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function addressTwoUpdate(Request $request){
         $this->updateWithValidation($request, false, 'physical_address_line_two');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function emailUpdate(Request $request){
         $this->updateWithValidation($request, false, 'email_address');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function phoneNumberUpdate(Request $request){
         $this->updateWithValidation($request, false, 'phone_number');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function googleMapUpdate(Request $request){
         $this->updateWithValidation($request, false, 'google_map');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function facebookPageUpdate(Request $request){
         $this->updateWithValidation($request, false, 'facebook_page');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function copyrightTextUpdate(Request $request){
         $this->updateWithValidation($request, false, 'copyright_text');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     private function updateWithValidation(Request $request, $isFile, $field): void

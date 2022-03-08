@@ -18,7 +18,7 @@ class AdminYtDocumentaryController extends Controller
             'yt_vide_id' => $request->yt_vide_id
         ]);
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
 
@@ -33,12 +33,12 @@ class AdminYtDocumentaryController extends Controller
             'yt_vide_id' => $request->yt_vide_id
         ]);
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
 
     public function delete($id){
         DocumentaryYtLink::whereId($id)->delete();
-        return back();
+        return back()->with('message','Data Updated');
     }
 }

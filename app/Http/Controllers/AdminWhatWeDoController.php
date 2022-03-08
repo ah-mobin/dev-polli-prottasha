@@ -43,7 +43,7 @@ class AdminWhatWeDoController extends Controller
 
         $data->save();
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
 
@@ -74,11 +74,11 @@ class AdminWhatWeDoController extends Controller
 
         $data->save();
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function delete($id){
         WhatWeDo::whereId($id)->delete();
-        return back();
+        return back()->with('message','Data Updated');
     }
 }

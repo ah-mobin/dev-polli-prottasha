@@ -57,26 +57,26 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" target="_top">
+                <a class="nav-link" href="{{ route('admin.contacts.index') }}" target="_top">
                     Contact Us
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="#" target="_top">
                     Gallery
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </li>
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{ route('users.index') }}">
             <svg class="nav-icon">
                 <use xlink:href="{{ asset('icons/coreui.svg#cil-user') }}"></use>
             </svg>
             {{ __('Users') }}
         </a>
-    </li>
+    </li> --}}
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.welcome-note') }}">

@@ -15,7 +15,7 @@ class AdminAboutPageController extends Controller
 
     public function historyUpdate(Request $request){
         $this->update($request, 'history');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function mission(){
@@ -25,7 +25,7 @@ class AdminAboutPageController extends Controller
 
     public function missionUpdate(Request $request){
         $this->update($request, 'mission');
-        return back();
+        return back()->with('message','Data Updated');;
     }
 
     public function vision(){
@@ -35,7 +35,7 @@ class AdminAboutPageController extends Controller
 
     public function visionUpdate(Request $request){
         $this->update($request, 'vision');
-        return back();
+        return back()->with('message','Data Updated');;
     }
 
 

@@ -28,7 +28,7 @@ class AdminHomePageController extends Controller
             'item_one' => $request->item_one
         ]);
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function secOneContentTwo(Request $request){
@@ -36,7 +36,7 @@ class AdminHomePageController extends Controller
             'item_two' => $request->item_two
         ]);
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function secOneContentThree(Request $request){
@@ -44,7 +44,7 @@ class AdminHomePageController extends Controller
             'item_three' => $request->item_three
         ]);
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function secThreeStore(Request $request){
@@ -72,7 +72,7 @@ class AdminHomePageController extends Controller
             'image' => $value,
         ]);
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function secThreeUpdate(Request $request, $id){
@@ -97,11 +97,11 @@ class AdminHomePageController extends Controller
         }
         $data->save();
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function secThreeDelete($id){
         HomeSectionThree::whereId($id)->delete();
-        return back();
+        return back()->with('message','Data Updated');
     }
 }

@@ -15,12 +15,12 @@ class AdminWelcomeNoteController extends Controller
 
     public function titleUpdate(Request $request){
         $this->updateWithValidation($request, 'title');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function noteUpdate(Request $request){
         $this->updateWithValidation($request, 'note');
-        return back();
+        return back()->with('message','Data Updated');
     }
 
 

@@ -33,12 +33,12 @@ class AdminSuccessStoriesController extends Controller
             'image' => config('app.url').'/storage/'.$name,
         ]);
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function delete($id){
         SuccessStory::whereId($id)->delete();
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 }

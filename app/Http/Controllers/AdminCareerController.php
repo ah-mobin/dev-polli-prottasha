@@ -40,7 +40,7 @@ class AdminCareerController extends Controller
 
         $data->save();
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function update(Request $request, $id){
@@ -69,7 +69,7 @@ class AdminCareerController extends Controller
 
         $data->save();
 
-        return back();
+        return back()->with('message','Data Updated');
     }
 
     public function delete($id){
