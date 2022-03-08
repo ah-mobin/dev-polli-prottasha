@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\SuccessStory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -26,6 +27,10 @@ class AdminSuccessStoriesController extends Controller
         SuccessStory::create([
             'image' => config('app.url').'/storage/'.$name,
             'link' => $request->link
+        ]);
+
+        Gallery::create([
+            'image' => config('app.url').'/storage/'.$name,
         ]);
 
         return back();

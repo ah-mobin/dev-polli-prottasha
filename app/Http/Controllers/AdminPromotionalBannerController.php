@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\PromotionalBanner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -45,6 +46,10 @@ class AdminPromotionalBannerController extends Controller
                 );
 
                 $value = config('app.url').'/storage/'.$name;
+
+                Gallery::create([
+                    'image' => $value
+                ]);
 
             }
             

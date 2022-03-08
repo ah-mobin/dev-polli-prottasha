@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ExecutiveDirector;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -50,6 +51,10 @@ class AdminExecutiveDirectorController extends Controller
                 );
 
                 $value = config('app.url').'/storage/'.$name;
+
+                Gallery::create([
+                    'image' => $value
+                ]);
 
             }
             

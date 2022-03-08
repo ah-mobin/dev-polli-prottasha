@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +21,10 @@ class AdminSliderController extends Controller
             Storage::putFileAs(
                 'public', $request->file('image'),$name
             );
+
+            Gallery::create([
+                'image' => config('app.url').'/storage/'.$name,
+            ]);
         }
 
 

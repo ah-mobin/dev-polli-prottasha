@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\WhatWeDo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -34,6 +35,10 @@ class AdminWhatWeDoController extends Controller
             $value = config('app.url').'/storage/'.$name;
 
             $data->image = $value;
+
+            Gallery::create([
+                'image' => $value,
+            ]);
         }
 
         $data->save();
@@ -61,6 +66,10 @@ class AdminWhatWeDoController extends Controller
             $value = config('app.url').'/storage/'.$name;
 
             $data->image = $value;
+
+            Gallery::create([
+                'image' => $value,
+            ]);
         }
 
         $data->save();

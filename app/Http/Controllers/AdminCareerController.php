@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Career;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,6 +32,10 @@ class AdminCareerController extends Controller
             $value = config('app.url').'/storage/'.$name;
 
             $data->image = $value;
+
+            Gallery::create([
+                'image' => $value
+            ]);
         }
 
         $data->save();
@@ -56,6 +61,10 @@ class AdminCareerController extends Controller
             $value = config('app.url').'/storage/'.$name;
 
             $data->image = $value;
+
+            Gallery::create([
+                'image' => $value
+            ]);
         }
 
         $data->save();

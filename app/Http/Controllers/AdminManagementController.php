@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\Organogram;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -30,6 +31,10 @@ class AdminManagementController extends Controller
             $value = config('app.url').'/storage/'.$name;
 
             $image->image = $value;
+
+            Gallery::create([
+                'image' => $value
+            ]);
         }
 
         $image->save();

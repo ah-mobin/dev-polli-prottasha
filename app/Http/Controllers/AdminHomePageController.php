@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DocumentaryYtLink;
+use App\Models\Gallery;
 use App\Models\HomeSectionOne;
 use App\Models\Slider;
 use App\Models\SuccessStory;
@@ -58,11 +59,17 @@ class AdminHomePageController extends Controller
             Storage::putFileAs(
                 'public', $request->file('image'),$name
             );
+
+            $value = config('app.url').'/storage/'.$name;
+            
+            Gallery::create([
+                'image' => $value
+            ]);
         }
 
         HomeSectionThree::create([
             'title' => $request->title,
-            'image' => config('app.url').'/storage/'.$name,
+            'image' => $value,
         ]);
 
         return back();
@@ -83,6 +90,10 @@ class AdminHomePageController extends Controller
                 'public', $request->file('image'),$name
             );
             $data->image = config('app.url').'/storage/'.$name;
+
+            Gallery::create([
+                'image' => config('app.url').'/storage/'.$name
+            ]);
         }
         $data->save();
 
