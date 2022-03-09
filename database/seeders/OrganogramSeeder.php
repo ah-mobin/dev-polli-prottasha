@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Gallery;
 use App\Models\Organogram;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,6 +17,10 @@ class OrganogramSeeder extends Seeder
     public function run()
     {
         Organogram::create([
+            'image' => config('app.url').'/assets/img/organogram.png',
+        ]);
+
+        Gallery::create([
             'image' => config('app.url').'/assets/img/organogram.png',
         ]);
     }

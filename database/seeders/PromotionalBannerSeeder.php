@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Gallery;
 use App\Models\PromotionalBanner;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,7 +18,11 @@ class PromotionalBannerSeeder extends Seeder
     {
         PromotionalBanner::create([
             'title' => 'স্বাধীনতার সুবর্ণ জয়ন্তী',
-            'image' => config('app.url').'\assets\img\BD_golden_jubilee.png',
+            'image' => config('app.url').'/assets/img/BD_golden_jubilee.png',
+        ]);
+
+        Gallery::create([
+            'image' => config('app.url').'/assets/img/BD_golden_jubilee.png',
         ]);
     }
 }

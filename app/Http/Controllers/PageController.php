@@ -6,6 +6,7 @@ use App\Models\Career;
 use App\Models\ChairmanSpeech;
 use App\Models\DocumentaryYtLink;
 use App\Models\ExecutiveDirector;
+use App\Models\Gallery;
 use App\Models\HomeSectionOne;
 use App\Models\HomeSectionThree;
 use App\Models\LegalStatus;
@@ -136,7 +137,8 @@ class PageController extends Controller
     {
         try{
             $title = 'Gallery';
-            return view('web.pages.gallery',compact('title'));
+            $gallery = Gallery::all();
+            return view('web.pages.gallery',compact('title','gallery'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();

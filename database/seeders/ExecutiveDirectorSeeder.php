@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\ExecutiveDirector;
+use App\Models\Gallery;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,7 +22,11 @@ class ExecutiveDirectorSeeder extends Seeder
             <p>He also worked for BRAC- International, Head office, BRAC Center, Mohakhali, Dhaka and BRAC – Uganda- as a Senior Sector Specialist, Loan review unit, Microfinance program.</p>
             <p>He did B.S.S and M.S.S degree in Economics from the universities of Dhaka.</p>
             <p>He is  a active member of DUFA.</p>",
-            "image" => config('app.url').'\assets\img\director.jpg',
+            "image" => config('app.url').'/asssets/img/director.jpg',
+        ]);
+
+        Gallery::create([
+            'image' => config('app.url').'/asssets/img/director.jpg',
         ]);
     }
 }
