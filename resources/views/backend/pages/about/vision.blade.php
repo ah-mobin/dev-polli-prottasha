@@ -6,6 +6,8 @@
             {{ __('About - Vision') }}
         </div>
 
+        @includeIf('flash')
+
         <div class="card-body">
 
             <form action="{{ route('admin.about.visions.update') }}" method="post">

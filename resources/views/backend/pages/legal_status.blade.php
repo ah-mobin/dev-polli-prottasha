@@ -6,6 +6,8 @@
             {{ __('Legal Status') }}
         </div>
 
+        @includeIf('flash')
+
         <div class="card-body">
             <button type="button" class="btn btn-primary text-light" data-bs-toggle="modal" data-bs-target="#addLG">
                 Add

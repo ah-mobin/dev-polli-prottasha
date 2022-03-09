@@ -6,6 +6,8 @@
             {{ __('Promotional Banner') }}
         </div>
 
+        @includeIf('flash')
+
         <div class="card-body">
 
             <table class="table table-bordered">

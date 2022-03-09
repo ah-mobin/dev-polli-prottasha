@@ -6,6 +6,8 @@
             {{ __('About - History') }}
         </div>
 
+        @includeIf('flash')
+        
         <div class="card-body">
 
             <form action="{{ route('admin.about.histories.update') }}" method="post">

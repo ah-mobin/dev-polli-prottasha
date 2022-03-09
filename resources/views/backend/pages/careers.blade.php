@@ -6,6 +6,8 @@
             {{ __('Careers') }}
         </div>
 
+        @includeIf('flash')
+
         <div class="card-body">
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCareer">
             Create

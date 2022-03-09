@@ -61,11 +61,11 @@
                     Contact Us
                 </a>
             </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link" href="#" target="_top">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.galleries.index') }}" target="_top">
                     Gallery
                 </a>
-            </li> --}}
+            </li>
         </ul>
     </li>
 

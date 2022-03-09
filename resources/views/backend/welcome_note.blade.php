@@ -8,6 +8,8 @@
 
         <div class="card-body">
 
+            @includeIf('flash')
+
             <table class="table table-bordered">
                 <tr>
                     <th width="20%">Title</th>

@@ -18,6 +18,7 @@ use App\Http\Controllers\AdminWelcomeNoteController;
 use App\Http\Controllers\AdminWhatWeDoController;
 use App\Http\Controllers\AdminYtDocumentaryController;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
@@ -167,6 +168,12 @@ Route::group(['prefix'=>'admin'],function(){
             Route::put('history',[AdminAboutPageController::class,'historyUpdate'])->name('.histories.update');
             Route::put('mission',[AdminAboutPageController::class,'missionUpdate'])->name('.missions.update');
             Route::put('vision',[AdminAboutPageController::class,'visionUpdate'])->name('.visions.update');
+        });
+
+        Route::group(['prefix'=>'galleries','as'=>'admin.galleries'],function(){
+            Route::get('/',[GalleryController::class,'index'])->name('.index');
+            Route::post('/',[GalleryController::class,'store'])->name('.store');
+            Route::delete('/{id}',[GalleryController::class,'delete'])->name('.delete');
         });
 
         Route::group(['prefix'=>'contacts','as'=>'admin.contacts'],function(){
