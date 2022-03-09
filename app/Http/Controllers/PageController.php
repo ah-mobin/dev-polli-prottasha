@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Career;
+use App\Models\ChairmanSpeech;
 use App\Models\DocumentaryYtLink;
+use App\Models\ExecutiveDirector;
 use App\Models\HomeSectionOne;
 use App\Models\HomeSectionThree;
+use App\Models\LegalStatus;
+use App\Models\Organogram;
+use App\Models\PageAbout;
 use App\Models\Slider;
 use App\Models\SuccessStory;
+use App\Models\WelcomeNote;
+use App\Models\WhatWeDo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Contracts\View\View;
@@ -33,7 +41,8 @@ class PageController extends Controller
     {
         try{
             $title = 'History';
-            return view('web.pages.history',compact('title'));
+            $history = PageAbout::select('history')->firstOrFail();
+            return view('web.pages.history',compact('title','history'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();
@@ -44,7 +53,8 @@ class PageController extends Controller
     {
         try{
             $title = 'Mission';
-            return view('web.pages.mission',compact('title'));
+            $mission = PageAbout::select('mission')->firstOrFail();
+            return view('web.pages.mission',compact('title','mission'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();
@@ -55,7 +65,8 @@ class PageController extends Controller
     {
         try{
             $title = 'Vision';
-            return view('web.pages.vision',compact('title'));
+            $vision = PageAbout::select('vision')->firstOrFail();
+            return view('web.pages.vision',compact('title','vision'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();
@@ -66,7 +77,8 @@ class PageController extends Controller
     {
         try{
             $title = 'Management Organogram';
-            return view('web.pages.organogram',compact('title'));
+            $orgImg = Organogram::latest()->firstOrFail()->image;
+            return view('web.pages.organogram',compact('title','orgImg'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();
@@ -77,7 +89,8 @@ class PageController extends Controller
     {
         try{
             $title = 'What We Do';
-            return view('web.pages.what_we_do',compact('title'));
+            $wwds = WhatWeDo::all();
+            return view('web.pages.what_we_do',compact('title','wwds'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();
@@ -88,7 +101,8 @@ class PageController extends Controller
     {
         try{
             $title = 'Legal Status';
-            return view('web.pages.legal_status',compact('title'));
+            $statuses = LegalStatus::all();
+            return view('web.pages.legal_status',compact('title','statuses'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();
@@ -99,7 +113,8 @@ class PageController extends Controller
     {
         try{
             $title = 'Career';
-            return view('web.pages.career',compact('title'));
+            $careers = Career::all();
+            return view('web.pages.career',compact('title','careers'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();
@@ -143,7 +158,8 @@ class PageController extends Controller
     {
         try{
             $title = 'Chairman Speech';
-            return view('web.pages.chairman_speech',compact('title'));
+            $chr = ChairmanSpeech::firstOrFail();
+            return view('web.pages.chairman_speech',compact('title','chr'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();
@@ -154,7 +170,8 @@ class PageController extends Controller
     {
         try{
             $title = 'Executive Director';
-            return view('web.pages.executive_director',compact('title'));
+            $ed = ExecutiveDirector::firstOrFail();
+            return view('web.pages.executive_director',compact('title','ed'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();
@@ -165,7 +182,8 @@ class PageController extends Controller
     {
         try{
             $title = 'Welcome Note';
-            return view('web.pages.welcome_note',compact('title'));
+            $wn = WelcomeNote::firstOrFail();
+            return view('web.pages.welcome_note',compact('title','wn'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();

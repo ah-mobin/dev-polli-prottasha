@@ -6,7 +6,7 @@
         <div class="branches py-2 my-4">
             <h3 class="text-center mb-4">Polli Prottasha Organogram</h3>
 
-            <img src="assets/img/organogram.png" class="img-fluid w-100" alt="">
+            <img src="{{ $orgImg }}" class="img-fluid w-100" alt="">
         </div>
     </div>
 @stop

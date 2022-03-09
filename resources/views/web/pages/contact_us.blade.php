@@ -17,7 +17,7 @@
                         <div class="text-center">
                             <span class="fa fa-map-marker-alt"></span>
                             <h2>Location</h2>
-                            <p>Ma Babar Dowa Villa<br>Baluapara, Gauripur, Mymensingh</p>
+                            <p>{{ $addressLineOne }}<br>{{ $addressLineTwo }}</p>
                         </div>
                     </div>
 
@@ -25,7 +25,7 @@
                         <div class="text-center contact-type">
                             <span class="fa fa-envelope"></span>
                             <h2>Email</h2>
-                            <a href="mailto:info@polliprottasha.org">info@polliprottasha.org</a>
+                            <a href="mailto:{{ $siteEmail }}">{{ $siteEmail }}</a>
                         </div>
                     </div>
 
@@ -33,7 +33,7 @@
                         <div class="text-center contact-type">
                             <span class="fa fa-phone-alt"></span>
                             <h2>Phone Number</h2>
-                            <a href="tel:01618700030">+880-1618-7000-30</a>
+                            <a href="tel:{{ $sitePhone }}">{{ $sitePhone }}</a>
                         </div>
                     </div>
                 </div>

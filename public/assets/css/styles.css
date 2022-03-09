@@ -419,6 +419,17 @@ footer hr:not([size]){
     height: 100px;
 }
 
+.wwd_item{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+
+.wwd_item:nth-child(even) .wwd_item_content{
+    order: 2;
+}
+
+
 @media only screen and (max-width: 991px) {
     
 .home-nav-list ul li{
