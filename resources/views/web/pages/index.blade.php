@@ -9,21 +9,20 @@
         <div id="carouselExampleIndicators" class="home-main-carousel-one carousel slide px-3 py-4 mb-3" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
+                
                 <div class="carousel-item active">
-                    <p>Welcome to the Polliprottasha's website, a renown socio-economic organization in Bangladesh. Polliprottasha is a good practiced MFI which has the aims to improve the life quality of the people living at the bottom of the socio-economic pyramid. Polliprottasha focus at awareness-raising and group formation for the aiming at integrated development by establishing rights of the poor Women, Education, Healthcare, Agriculture and credit for income generation activities.</p>
-                    <p>Nearly one thousand people in Gouripur, Mymensingh are getting benefit from the services and activities of Polliprottasha.</p>
-                    <p>We hope this website will be helpful for you to know about Polliprottasha. Thanks and good wishes to all who are interested in microfinance which is effective tools to reduce poverty from the society.</p>
+                    {!! $secOne->item_one !!}
                 </div>
                 <div class="carousel-item">
-                    <p>Polliprottasha is a socio-economic organization which was founded in 2003, at remote. Village Baluapara, Gouripur, Mymensingh. With welfare of the local community. It has a dynamic leadership approach which is key to make it possible to establish organizational sustainability with in the shortest time.</p>
+                    {!! $secOne->item_two !!}
                 </div>
                 <div class="carousel-item">
-                    <p>Our mission is to support and develop the rural economy by facilitating access to finance and other service for the disadvantaged people.</p>
-                    <p>Building a poverty free Bangladesh through social awareness and income generating activities for the poor people.</p>
+                    {!! $secOne->item_three !!}
                 </div>
             </div>
         </div>

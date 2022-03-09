@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\DocumentaryYtLink;
+use App\Models\HomeSectionOne;
 use App\Models\HomeSectionThree;
+use App\Models\Slider;
 use App\Models\SuccessStory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -18,7 +20,9 @@ class PageController extends Controller
             $stories = SuccessStory::select('image')->get();
             $threes = HomeSectionThree::all();
             $videos = DocumentaryYtLink::all();
-            return view('web.pages.index',compact('title','stories','threes','videos'));
+            $sliders = Slider::all();
+            $secOne = HomeSectionOne::firstOrFail();
+            return view('web.pages.index',compact('title','stories','threes','videos','sliders','secOne'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
             return $e->getMessage();

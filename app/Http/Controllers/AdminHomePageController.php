@@ -17,7 +17,7 @@ class AdminHomePageController extends Controller
         $sliders = Slider::latest()->get();
         $stories = SuccessStory::latest()->get();
         $videos = DocumentaryYtLink::latest()->get();
-        $secOne = HomeSectionOne::findOrFail(1);
+        $secOne = HomeSectionOne::findorFail(1);
         $threes = HomeSectionThree::latest()->get();
         return view('backend.pages.home',compact('sliders','stories','videos','secOne','threes'));
     }
