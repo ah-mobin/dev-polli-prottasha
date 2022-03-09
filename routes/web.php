@@ -24,6 +24,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Artisan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -196,4 +198,11 @@ Route::group(['prefix'=>'admin'],function(){
             Route::post('copyright',[AdminSettingsController::class,'copyrightTextUpdate'])->name('.copyright-text');
         });
     });
+});
+
+
+Route::get('reset',function(){
+    Artisan::call('migrate:fresh --db:seed');
+    Artisan::call('storage:link');
+    Artisan::call('optimize:clear');
 });
