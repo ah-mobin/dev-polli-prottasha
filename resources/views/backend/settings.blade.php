@@ -117,7 +117,7 @@
                 </form>
                 </tr>
 
-                <tr>
+                {{-- <tr>
                     <th width="35%">Google Map Track Id</th>
                     <form action="{{ route('admin.settings.google-map-id') }}" method="POST">
                         @csrf
@@ -128,9 +128,9 @@
                         <button class="btn btn-success text-light" type="submit">Update</button>
                     </td>
                 </form>
-                </tr>
+                </tr> --}}
 
-                <tr>
+                {{-- <tr>
                     <th width="35%">Facebook Page Id</th>
                     <form action="{{ route('admin.settings.fb-page-id') }}" method="POST">
                         @csrf
@@ -141,7 +141,7 @@
                         <button class="btn btn-success text-light" type="submit">Update</button>
                     </td>
                 </form>
-                </tr>
+                </tr> --}}
                 <tr>
                     <th width="35%">Footer Copyright Text</th>
                     <form action="{{ route('admin.settings.copyright-text') }}" method="POST">

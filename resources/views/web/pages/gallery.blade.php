@@ -10,7 +10,7 @@
             @foreach ($gallery as $img)
             <div class="col-md-4 col-6 mb-3">
                 <a href="{{ $img->image }}" data-lightbox="mygallery">
-                    <img src="{{ $img->image }}" class="img-fluid w-100" alt="">
+                    <img src="{{ $img->image }}" class="img-fluid w-100" style="max-height: 300px" alt="">
                 </a>
             </div>
             @endforeach

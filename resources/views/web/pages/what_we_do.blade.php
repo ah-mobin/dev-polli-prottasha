@@ -8,16 +8,16 @@
 
 
             @foreach ($wwds as $i)
-                
-            @endforeach
             <div class="wwd_item mb-5">
                 <div class="wwd_item_content">
-                    <h5>{{ $i->desc }}</h5>
-                    <p>{{ $i->image }}</p>
+                    <h5>{{ $i->title }}</h5>
+                    <p>{{ $i->desc }}</p>
                 </div>
 
-                <img src="{{ $i->title }}" style="height: 220px" class="img-fluid w-100" alt="">
+                <img src="{{ $i->image }}" style="height: 220px" class="img-fluid w-100" alt="">
             </div>
+            @endforeach
+            
 
         </div>
 

@@ -132,16 +132,6 @@
         </a>
     </li>
 
-
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('about') }}">
-            <svg class="nav-icon">
-                <use xlink:href="{{ asset('icons/coreui.svg#cil-browser') }}"></use>
-            </svg>
-            {{ __('Executive Director') }}
-        </a>
-    </li>
-
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.settings') }}">
             <svg class="nav-icon">
