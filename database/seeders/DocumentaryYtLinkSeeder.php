@@ -16,14 +16,14 @@ class DocumentaryYtLinkSeeder extends Seeder
     public function run()
     {
         $ids = [
-            '0FjFHmbyUTM',
-            'xaYx3rZah1s'
+            ['Documentary Film','0FjFHmbyUTM'],
+            ['Documentary On Palli Prottasha','xaYx3rZah1s']
         ];
 
         foreach($ids as $id){
             DocumentaryYtLink::create([
-                'title' => $id,
-                'yt_vide_id' => $id 
+                'title' => $id[0],
+                'yt_vide_id' => $id[1] 
             ]);
         }
     }

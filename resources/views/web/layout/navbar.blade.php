@@ -12,10 +12,10 @@
         <div class="collapse navbar-collapse text-uppercase" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('page.index') }}"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    <a class="nav-link @if(\Request::route()->getName() == 'page.index') active @endif" href="{{ route('page.index') }}"><i class="fa fa-home" aria-hidden="true"></i></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarAboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle @if((\Request::route()->getName() == 'page.history') || (\Request::route()->getName() == 'page.mission') || (\Request::route()->getName() == 'page.vision')) active @endif" href="#" id="navbarAboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         about
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarAboutDropdown">
@@ -25,7 +25,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarManagementDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle @if(\Request::route()->getName() == 'page.organogram') active @endif" href="#" id="navbarManagementDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         management
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarManagementDropdown">
@@ -33,19 +33,19 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('page.what-we-do') }}">what we do</a>
+                    <a class="nav-link @if(\Request::route()->getName() == 'page.what-we-do') active @endif" href="{{ route('page.what-we-do') }}">what we do</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('page.legal-status') }}">legal status</a>
+                    <a class="nav-link @if(\Request::route()->getName() == 'page.legal-status') active @endif" href="{{ route('page.legal-status') }}">legal status</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('page.career') }}">career</a>
+                    <a class="nav-link @if(\Request::route()->getName() == 'page.career') active @endif" href="{{ route('page.career') }}">career</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('page.gallery') }}">gallery</a>
+                    <a class="nav-link @if(\Request::route()->getName() == 'page.gallery') active @endif" href="{{ route('page.gallery') }}">gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('page.contact-us') }}">contact us</a>
+                    <a class="nav-link @if(\Request::route()->getName() == 'page.contact-us') active @endif" href="{{ route('page.contact-us') }}">contact us</a>
                 </li>
             </ul>
 

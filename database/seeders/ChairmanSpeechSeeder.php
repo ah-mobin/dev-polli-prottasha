@@ -23,7 +23,7 @@ class ChairmanSpeechSeeder extends Seeder
         ]);
 
         Gallery::create([
-            'image' => config('app.url').'/asssets/img/chairman.jpg',
+            'image' => config('app.url').'/assets/img/chairman.jpg',
         ]);
     }
 }

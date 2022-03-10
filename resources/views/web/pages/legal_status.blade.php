@@ -19,7 +19,13 @@
                 <tr>
                     <td>{{ $loop->index+1 }}</td>
                     <td>{{ $ls->department_name }}</td>
-                    <td>{{ $ls->registration_link ? $ls->registration_link : $ls->registration_no }}</td>
+                    <td>
+                        @if(!empty($ls->registration_link))
+                        <a class="btn btn-primary" href={{ $ls->registration_link }}>Click Here</a>
+                        @else
+                            {{ $ls->registration_no }}
+                        @endif
+                    </td>
                     <td>{{ $ls->registration_date }}</td>
                 </tr> 
                 @endforeach

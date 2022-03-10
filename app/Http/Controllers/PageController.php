@@ -26,7 +26,7 @@ class PageController extends Controller
     {
         try{
             $title = 'Home';
-            $stories = SuccessStory::select('image')->get();
+            $stories = SuccessStory::select('image')->take(6)->get();
             $threes = HomeSectionThree::all();
             $videos = DocumentaryYtLink::all();
             $sliders = Slider::all();
@@ -34,7 +34,7 @@ class PageController extends Controller
             return view('web.pages.index',compact('title','stories','threes','videos','sliders','secOne'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 
@@ -46,7 +46,7 @@ class PageController extends Controller
             return view('web.pages.history',compact('title','history'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 
@@ -58,7 +58,7 @@ class PageController extends Controller
             return view('web.pages.mission',compact('title','mission'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 
@@ -70,7 +70,7 @@ class PageController extends Controller
             return view('web.pages.vision',compact('title','vision'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 
@@ -82,7 +82,7 @@ class PageController extends Controller
             return view('web.pages.organogram',compact('title','orgImg'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 
@@ -94,7 +94,7 @@ class PageController extends Controller
             return view('web.pages.what_we_do',compact('title','wwds'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 
@@ -106,7 +106,7 @@ class PageController extends Controller
             return view('web.pages.legal_status',compact('title','statuses'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 
@@ -118,7 +118,7 @@ class PageController extends Controller
             return view('web.pages.career',compact('title','careers'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 
@@ -129,7 +129,7 @@ class PageController extends Controller
             return view('web.pages.career_details',compact('title'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 
@@ -141,7 +141,7 @@ class PageController extends Controller
             return view('web.pages.gallery',compact('title','gallery'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 
@@ -152,7 +152,7 @@ class PageController extends Controller
             return view('web.pages.contact_us',compact('title'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 
@@ -164,7 +164,7 @@ class PageController extends Controller
             return view('web.pages.chairman_speech',compact('title','chr'));
         }catch(\Exception | \Throwable $e){
             Log::critical($e->getMessage());
-            return $e->getMessage();
+            return abort(500);
         }
     }
 

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\WhatWeDo;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -50,5 +51,14 @@ class WhatWeDoSeeder extends Seeder
                 config('app.url').'/assets/img/IMG-20211117-WA0023.jpg'
             ],
         ];
+
+        
+        foreach($wwdos as $wwd){
+            WhatWeDo::create([
+                'title' => $wwd['0'],
+                'desc' => $wwd['1'],
+                'image' => $wwd['2'],
+            ]);
+        }
     }
 }

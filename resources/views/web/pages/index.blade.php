@@ -29,31 +29,84 @@
 
 
         <!-- Main Content Part Two -->
-        <div id="carouselExampleIndicatorsTwo" class="home-main-carousel-two carousel slide text-light py-2 mb-3" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicatorsTwo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <!-- <button type="button" data-bs-target="#carouselExampleIndicatorsTwo" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicatorsTwo" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
+<div id="carouselExampleIndicatorsTwo" class="home-main-carousel-two carousel slide text-light py-2 mb-3" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        @if($stories->count() > 4)
+        <button type="button" data-bs-target="#carouselExampleIndicatorsTwo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicatorsTwo" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicatorsTwo" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        @endif
+        @if($stories->count() > 2 && $stories->count() < 5 )
+        <button type="button" data-bs-target="#carouselExampleIndicatorsTwo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicatorsTwo" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        @endif
+    </div>
+    <div class="carousel-inner"> 
+        <div class="carousel-item active">
+            <div class="item-header">
+              <h4 class="text-center py-2">Success Stories</h4>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="item-header">
-                        <h4 class="text-center py-2">Success Stories</h4>
-                    </div>
 
-                    <div class="item-content p-2">
-                        <div class="row">
-                            @foreach($stories as $img)
-                            <div class="col-6">
-                                <img src="{{ $img->image }}" class="img-fluid" alt="">
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
+            <div class="item-content p-2">
+              <div class="row">
+                @if(!empty($stories[0]))
+                <div class="col-6">
+                  <img src="{{ $stories[0]->image ?? '' }}" class="img-fluid" alt="">
                 </div>
+                @endif
+                @if(!empty($stories[1]))
+                <div class="col-6">
+                  <img src="{{ $stories[1]->image ?? '' }}" class="img-fluid" alt="">
+                </div>
+                @endif
+              </div>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="item-header">
+              <h4 class="text-center py-2">Success Stories</h4>
             </div>
 
+            <div class="item-content p-2">
+              <div class="row">
+                @if(!empty($stories[2]))
+                <div class="col-6">
+                  <img src="{{ $stories[2]->image ?? '' }}" class="img-fluid" alt="">
+                </div>
+                @endif
+                @if(!empty($stories[3]))
+                <div class="col-6">
+                  <img src="{{ $stories[3]->image ?? '' }}" class="img-fluid" alt="">
+                </div>
+                @endif
+              </div>
+            </div>
         </div>
+
+        <div class="carousel-item">
+            <div class="item-header">
+              <h4 class="text-center py-2">Success Stories</h4>
+            </div>
+
+            <div class="item-content p-2">
+              <div class="row">
+                @if(!empty($stories[4]))
+                <div class="col-6">
+                  <img src="{{ $stories[4]->image ?? '' }}" class="img-fluid" alt="">
+                </div>
+                @endif
+                @if(!empty($stories[5]))
+                <div class="col-6">
+                  <img src="{{ $stories[5]->image ?? '' }}" class="img-fluid" alt="">
+                </div>
+                @endif
+              </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
         <!-- Main Content Part Three -->

@@ -9,9 +9,11 @@
         @includeIf('flash')
 
         <div class="card-body">
+          @if(auth()->user()->is_super == 1)
             <button type="button" class="btn btn-primary text-light" data-bs-toggle="modal" data-bs-target="#addLG">
                 Add
               </button>
+              @endif
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -38,10 +40,11 @@
                             <button type="button" class="btn btn-warning text-light" data-bs-toggle="modal" data-bs-target="#editLG{{ $item->id }}">
                                 Edit
                             </button>
-
+                            @if(auth()->user()->is_super == 1)
                             <button type="button" class="btn btn-danger text-light" data-bs-toggle="modal" data-bs-target="#removeLG{{ $item->id }}">
                                 Remove
                             </button>
+                            @endif
                         </td>
                     </tr>
 
