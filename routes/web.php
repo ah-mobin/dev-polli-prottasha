@@ -150,6 +150,7 @@ Route::group(['prefix'=>'admin'],function(){
 
         Route::group(['prefix'=>'stories','as'=>'admin.stories'],function(){
             Route::post('/',[AdminSuccessStoriesController::class,'store'])->name('.store');
+            Route::put('{id}',[AdminSuccessStoriesController::class,'update'])->name('.update');
             Route::delete('{id}',[AdminSuccessStoriesController::class,'delete'])->name('.delete');
         });
 

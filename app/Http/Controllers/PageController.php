@@ -26,7 +26,7 @@ class PageController extends Controller
     {
         try{
             $title = 'Home';
-            $stories = SuccessStory::select('image')->take(6)->get();
+            $stories = SuccessStory::all();
             $threes = HomeSectionThree::all();
             $videos = DocumentaryYtLink::all();
             $sliders = Slider::all();

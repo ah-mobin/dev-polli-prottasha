@@ -10,5 +10,5 @@ class SuccessStory extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['image'];
+    protected $fillable = ['image_one','image_two'];
 }
