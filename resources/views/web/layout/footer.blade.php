@@ -6,8 +6,8 @@
             <div class="col-md-5 col-6">
                 <h5 class="mb-4">Contact Information</h5>
                 <p>{{ $addressLineOne }}<br>{{ $addressLineTwo }}</p>
-                <p>Phone: {{ $siteEmail }}</p>
-                <p>E-mail: {{ $sitePhone }}</p>
+                <p>Phone: {{ $sitePhone }}</p>
+                <p>E-mail: {{ $siteEmail }}</p>
             </div>
 
             <div class="col-md-3 col-6 morelinks">
